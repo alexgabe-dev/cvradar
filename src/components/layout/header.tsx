@@ -83,7 +83,7 @@ export function Header() {
           <Link href="/#arak">Árak</Link>
         </nav>
         <Link className="nav-cta" href="/ellenorzes">
-          CV ellenőrzése <Icon name="arrow" />
+          Szöveg kiolvasása <Icon name="arrow" />
         </Link>
         <button
           ref={toggle}
@@ -112,7 +112,7 @@ export function Header() {
           Árak
         </Link>
         <Link onClick={() => setOpen(false)} href="/ellenorzes">
-          CV ellenőrzése <Icon name="arrow" />
+          Szöveg kiolvasása <Icon name="arrow" />
         </Link>
       </nav>
     </header>

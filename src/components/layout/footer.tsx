@@ -7,16 +7,16 @@ export function Footer() {
       <div className="container footer-top">
         <div>
           <Brand />
-          <p>Egy tisztább kép az önéletrajzodról.</p>
+          <p>Nézd meg, mit érdemes javítani az önéletrajzodon.</p>
         </div>
-        <Link href="/ellenorzes">
-          Próbáld ki a demót <span aria-hidden="true">↗</span>
+        <Link href="/mintaelemzes">
+          Megnézem a mintaelemzést <span aria-hidden="true">↗</span>
         </Link>
       </div>
       <div className="container footer-bottom">
         <span>© {new Date().getFullYear()} CVRadar</span>
-        <span>Korai prototípus · Valódi kérdések, mintaadatok.</span>
-        <Link href="/#gyik">Adatkezelés a demóban</Link>
+        <span>Szövegkinyerés · Külön, fiktív mintaértékelés.</span>
+        <Link href="/#gyik">Mi történik a fájloddal?</Link>
       </div>
     </footer>
   );

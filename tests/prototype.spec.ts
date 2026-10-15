@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { readFileSync } from "node:fs";
 import AxeBuilder from "@axe-core/playwright";
 
 const screenshotDirectory =
@@ -7,10 +8,7 @@ const screenshotDirectory =
 const pdf = {
   name: "anna-cv.pdf",
   mimeType: "application/pdf",
-  buffer: Buffer.concat([
-    Buffer.from("%PDF-1.4 demo fixture"),
-    Buffer.alloc(241 * 1024),
-  ]),
+  buffer: readFileSync("tests/fixtures/text.pdf"),
 };
 const docx = {
   name: "anna-cv-uj.docx",
@@ -37,7 +35,7 @@ test("landing, navigáció, mobilmenü, GYIK és példa CTA", async ({
   });
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Ne csak elküldd.",
+    "Küldés előtt",
   );
   await page.evaluate(() => document.fonts.ready);
   await noOverflow(page);
@@ -80,11 +78,20 @@ test("landing, navigáció, mobilmenü, GYIK és példa CTA", async ({
   const faq = page.locator("details").last();
   await faq.locator("summary").click();
   await expect(faq).toHaveAttribute("open", "");
-  await expect(faq).toContainText("Nem olvassuk ki");
-  await page.getByRole("link", { name: "Megnézem egy példán" }).click();
+  await expect(faq).toContainText("nem tároljuk tartósan");
+  const hero = page.locator(".hero");
+  await expect(
+    hero.getByText(
+      "Most szövegkinyerést és egy külön mintaelemzést tudsz kipróbálni.",
+    ),
+  ).toBeVisible();
+  await expect(
+    hero.getByRole("link", { name: "Megnézem a mintaelemzést" }),
+  ).toHaveAttribute("href", "/mintaelemzes");
+  await hero.getByRole("link", { name: "Megnézem a mintaelemzést" }).click();
   await expect(page).toHaveURL(/\/mintaelemzes$/);
   await expect(
-    page.getByRole("heading", { name: "Van mire építened." }),
+    page.getByRole("heading", { name: "3 javítandó részlet" }),
   ).toBeVisible();
   expect(errors).toEqual([]);
 });
@@ -93,8 +100,12 @@ test("fájlválasztás: típus, méret, üres fájl, csere, eltávolítás és h
   page,
 }) => {
   await page.goto("/ellenorzes");
-  await expect(page.getByText("Ez egy kipróbálható demó.")).toBeVisible();
-  await page.getByRole("button", { name: "Mintaelemzés megnyitása" }).click();
+  await expect(
+    page.getByText("Valódi szövegkinyerés, értékelés nélkül."),
+  ).toBeVisible();
+  await page
+    .getByRole("button", { name: "Szöveg kiolvasása", exact: true })
+    .click();
   await expect(page.locator("#file-error")).toContainText("Először válassz");
   const input = page.locator('input[type="file"]');
   await input.setInputFiles({
@@ -103,7 +114,7 @@ test("fájlválasztás: típus, méret, üres fájl, csere, eltávolítás és h
     buffer: Buffer.from("text"),
   });
   await expect(page.locator("#file-error")).toContainText(
-    "fájltípus nem támogatott",
+    "fájltípust nem tudod kiválasztani",
   );
   await input.setInputFiles({
     ...pdf,
@@ -127,7 +138,9 @@ test("fájlválasztás: típus, méret, üres fájl, csere, eltávolítás és h
   await expect(page.locator(".selected-filename")).toHaveText(docx.name);
   await page.getByRole("button", { name: "Eltávolítás" }).click();
   await expect(page.locator(".selected-filename")).toHaveCount(0);
-  await expect(page.getByText("Húzd ide az önéletrajzodat.")).toBeVisible();
+  await expect(
+    page.getByText("Húzz ide egy PDF- vagy DOCX-fájlt."),
+  ).toBeVisible();
   await noOverflow(page);
 });
 
@@ -158,37 +171,33 @@ test("drag-and-drop, több fájl és feltöltés nélküli továbblépés", asyn
   await expect(page.locator(".selected-filename")).toHaveText(
     "behuzott-cv.pdf",
   );
-  await page.getByRole("link", { name: "Megnézem fájl nélkül" }).click();
+  await page
+    .locator("main")
+    .getByRole("link", { name: "Megnézem a mintaelemzést" })
+    .click();
   await expect(page).toHaveURL(/\/mintaelemzes$/);
 });
 
-test("teljes demó: fájl és hirdetés nem kerül hálózatra vagy tartós tárolóba", async ({
+test("valódi feltöltés: csak a fájl kerül hálózatra, nincs tartós tárolás vagy demópontszám", async ({
   page,
 }, info) => {
   await page.goto("/");
   await page
-    .getByRole("link", { name: "Önéletrajz feltöltése", exact: true })
+    .getByRole("link", { name: "Kiolvasom a saját CV-m szövegét", exact: true })
     .first()
     .click();
   await expect(page).toHaveURL(/\/ellenorzes$/);
   const posts: string[] = [];
   const leaked: string[] = [];
   page.on("request", (request) => {
-    if (request.method() === "POST") posts.push(request.url());
+    if (request.method() === "POST")
+      posts.push(new URL(request.url()).pathname);
     if (
       `${request.url()} ${request.postData() ?? ""}`.includes(
-        "Marketingkoordinátort keresünk",
+        "HIRDETES_TITKOS_FIKTIV",
       )
     )
       leaked.push(request.url());
-  });
-  await page.evaluate(() => {
-    File.prototype.text = () => {
-      throw new Error("A fájlt nem szabad kiolvasni.");
-    };
-    File.prototype.arrayBuffer = () => {
-      throw new Error("A fájlt nem szabad kiolvasni.");
-    };
   });
   const before = await page.evaluate(() => ({
     local: { ...localStorage },
@@ -197,21 +206,28 @@ test("teljes demó: fájl és hirdetés nem kerül hálózatra vagy tartós tár
   await page.locator('input[type="file"]').setInputFiles(pdf);
   await page
     .getByLabel("Álláshirdetés", { exact: false })
-    .fill(
-      "Marketingkoordinátort keresünk heti közösségimédia-feladatokhoz. Elvárás az Excel-ismeret és a kampányriportálási tapasztalat.",
-    );
+    .fill("HIRDETES_TITKOS_FIKTIV marketingkoordinátor");
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({
     path: `${screenshotDirectory}/upload-${info.project.name}.png`,
     fullPage: true,
   });
-  await page.getByRole("button", { name: "Mintaelemzés megnyitása" }).click();
-  await expect(page).toHaveURL(/\/mintaelemzes\?hirdetes=megadva$/);
-  await expect(page.locator(".job-match")).toContainText(
-    "nem értékeli ki a bemásolt tartalmat",
+  await page
+    .getByRole("button", { name: "Szöveg kiolvasása", exact: true })
+    .click();
+  await expect(
+    page.getByRole("heading", {
+      name: "Ezt a szöveget sikerült kiolvasnunk a dokumentumból.",
+    }),
+  ).toBeVisible();
+  await expect(page.locator(".extracted-text")).toContainText(
+    "Árvíztűrő tükörfúrógép",
   );
-  await expect(page.locator(".job-match")).not.toContainText(/\d/);
-  expect(posts).toEqual([]);
+  await expect(page.locator(".selected-filename")).toHaveText(pdf.name);
+  await expect(
+    page.locator(".score-ring, .sample-badge, [role=meter]"),
+  ).toHaveCount(0);
+  expect(posts).toEqual(["/api/extract"]);
   expect(leaked).toEqual([]);
   expect(
     await page.evaluate(() => ({
@@ -220,11 +236,15 @@ test("teljes demó: fájl és hirdetés nem kerül hálózatra vagy tartós tár
     })),
   ).toEqual(before);
   await noOverflow(page);
-  await page
-    .getByRole("link", { name: "Vissza a feltöltéshez", exact: false })
-    .first()
-    .click();
+  await page.screenshot({
+    path: `${screenshotDirectory}/extraction-${info.project.name}.png`,
+    fullPage: true,
+  });
+  await page.getByRole("button", { name: "Másik fájlt választok" }).click();
   await expect(page.locator(".selected-filename")).toHaveCount(0);
+  await expect(page.getByLabel("Álláshirdetés", { exact: false })).toHaveValue(
+    "",
+  );
 });
 
 test("közvetlen mintaelemzés, részpontszámok és hirdetés nélküli állapot", async ({
@@ -238,7 +258,9 @@ test("közvetlen mintaelemzés, részpontszámok és hirdetés nélküli állapo
   await expect(page.getByRole("meter")).toHaveCount(3);
   await expect(page.locator(".improvement")).toHaveCount(3);
   await expect(
-    page.getByRole("heading", { name: "Mit sikerült kiolvasni?" }),
+    page.getByRole("heading", {
+      name: "Milyen adatok szerepelnek a mintában?",
+    }),
   ).toBeVisible();
   await expect(page.locator(".job-match")).toContainText(
     "Nincs megadott álláshirdetés",

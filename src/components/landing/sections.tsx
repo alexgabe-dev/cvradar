@@ -14,16 +14,16 @@ export function LandingSections() {
       >
         <div className="container">
           <div className="pricing-intro">
-            <span className="eyebrow">EGYSZERŰ, ÁTLÁTHATÓ</span>
-            <h2 id="pricing-title">Kezdd egy tisztább képpel.</h2>
+            <span className="eyebrow">TERVEZETT CSOMAGOK</span>
+            <h2 id="pricing-title">Az alapellenőrzés ingyenes lesz.</h2>
             <p>
-              Az alapellenőrzés ingyenes lesz. A részletes javítást akkor
-              választhatod, ha többre van szükséged.
+              Most a mintaelemzést nézheted meg ingyen. A saját CV-d ellenőrzése
+              és a fizetős csomag még nem érhető el.
             </p>
           </div>
           <div className="pricing-options">
             <div className="price-option free-option">
-              <span className="price-index">01 / AZ ELSŐ LÉPÉS</span>
+              <span className="price-index">01 / ALAPELLENŐRZÉS</span>
               <h3>Alapellenőrzés</h3>
               <div className="price">
                 Ingyenes<span>Most mintaelemzéssel kipróbálható</span>
@@ -31,22 +31,22 @@ export function LandingSections() {
               <ul>
                 <li>
                   <Icon name="check" />
-                  Általános minőségi kép és részpontszámok
+                  Olvashatóság, hiányzó adatok és megfogalmazás
                 </li>
                 <li>
                   <Icon name="check" />3 fontos javítási javaslat
                 </li>
                 <li>
                   <Icon name="check" />
-                  Átlátható, konkrét visszajelzés
+                  Példák arra, hogyan javítsd a hibákat
                 </li>
               </ul>
-              <Link href="/ellenorzes" className="button button-dark">
-                Megnézem a demót <Icon name="arrow" />
+              <Link href="/mintaelemzes" className="button button-dark">
+                Megnézem a mintaelemzést <Icon name="arrow" />
               </Link>
             </div>
             <div className="price-option paid-option">
-              <span className="price-index">02 / A KÖVETKEZŐ LÉPÉS</span>
+              <span className="price-index">02 / RÉSZLETES JAVÍTÁS</span>
               <span className="soon-badge">TERVEZETT</span>
               <h3>CV-javítás</h3>
               <div className="price">
@@ -60,11 +60,11 @@ export function LandingSections() {
                 </li>
                 <li>
                   <Icon name="plus" />
-                  Vezetett átírás, a saját tényeidre építve
+                  Segítség a mondatok átírásához, új tények nélkül
                 </li>
                 <li>
                   <Icon name="plus" />
-                  Később PDF / DOCX export
+                  Tervezett PDF- és DOCX-letöltés
                 </li>
               </ul>
               <div className="coming-notice">
@@ -81,12 +81,10 @@ export function LandingSections() {
       >
         <div className="container faq-layout">
           <div>
-            <span className="eyebrow">JÓ, HA TUDOD</span>
-            <h2 id="faq-title">
-              Néhány kérdés,
-              <br />
-              őszinte válaszok.
-            </h2>
+            <span className="eyebrow">
+              A DEMÓRÓL ÉS A TERVEZETT SZOLGÁLTATÁSRÓL
+            </span>
+            <h2 id="faq-title">Gyakori kérdések</h2>
           </div>
           <div className="faq-list">
             {faqs.map((faq) => (
@@ -103,12 +101,12 @@ export function LandingSections() {
       </section>
       <section className="closing-section">
         <div className="container">
-          <span className="eyebrow">A KÖVETKEZŐ JELENTKEZÉSED ELŐTT</span>
-          <h2>Nézd meg, mit mesél rólad a CV-d.</h2>
-          <Link href="/ellenorzes" className="button button-mint">
-            Önéletrajz feltöltése <Icon name="arrow" />
+          <span className="eyebrow">NÉZD MEG EGY PÉLDÁN</span>
+          <h2>Milyen visszajelzést kapsz majd?</h2>
+          <Link href="/mintaelemzes" className="button button-mint">
+            Megnézem a mintaelemzést <Icon name="arrow" />
           </Link>
-          <p>Kipróbálható demó. A fájlod a böngésződben marad.</p>
+          <p>A mintaelemzéshez nem kell fájlt kiválasztanod.</p>
         </div>
       </section>
     </>

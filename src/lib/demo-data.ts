@@ -24,47 +24,47 @@ export const subscores = [
   {
     label: "Olvashatóság",
     value: 94,
-    detail: "A mintadokumentum szövege jól elkülönül.",
+    detail: "A mintában a szöveg és a szekciók jól elkülönülnek.",
   },
   {
-    label: "Szerkezet és teljesség",
+    label: "Szerkezet és hiányzó adatok",
     value: 85,
-    detail: "Az alapvető szekciók megtalálhatók; néhány részlet hiányzik.",
+    detail: "A munkakezdés hónapja és a pontos nyelvi szint hiányzik.",
   },
   {
     label: "Megfogalmazás",
     value: 67,
-    detail: "A feladatok egy része pontosabban is leírható.",
+    detail: "A közösségi médiás feladatokat érdemes egy mondatba rendezni.",
   },
 ];
 
 export const improvements = [
   {
-    title: "Tedd egyértelművé a feladataidat.",
+    title: "Kapcsold össze a feladatot, a felületeket és a gyakoriságot.",
     reference: "Szakmai tapasztalat · Minta Stúdió",
     quote: "Közösségi média kezelése…",
     reason:
-      "Az eszközök és a rendszeresség már szerepelnek a CV-ben. Összekapcsolva őket könnyebb megérteni, mit végeztél a mindennapokban.",
+      "A „közösségi média kezelése” önmagában nem mondja el, mit csináltál. A következő sorokban már ott vannak a részletek: Facebook, Instagram, heti bejegyzések és havi Excel-riportok.",
     action:
-      "Nevezd meg egy mondatban a felületeket, a heti bejegyzéseket és a havi riportokat.",
+      "Írd ezeket egy mondatba, ahogy a lenti példában látod. Új feladatot vagy eredményt csak akkor adj hozzá, ha valóban a munkád része volt.",
   },
   {
     title: "Add meg az angoltudásod szintjét.",
     reference: "Nyelvtudás",
     quote: "Angol – kommunikációképes",
     reason:
-      "A „kommunikációképes” többféle tudásszintet jelenthet. Nem derül ki, milyen helyzetben használod a nyelvet.",
+      "A „kommunikációképes” nem mondja el, hogy például levelezni, telefonálni vagy megbeszélésen részt venni tudsz angolul.",
     action:
-      "Ha ismered, add meg a CEFR-szintedet (például B2). Csak a valós tudásodnak megfelelő szintet írd be.",
+      "Ha ismered a nyelvi szintedet, add meg, például B2. Azt is leírhatod, milyen helyzetekben használod az angolt. Csak olyat írj, ami igaz rád.",
   },
   {
     title: "Pontosítsd a munkakezdés dátumát.",
     reference: "Szakmai tapasztalat · 2022 – jelenleg",
     quote: "2022 – jelenleg",
     reason:
-      "Az év önmagában nem mutatja meg pontosan a tapasztalat hosszát. A hónap segít követni az időrendet.",
+      "A „2022 – jelenleg” mellől hiányzik a kezdő hónap. Így nem derül ki pontosan, mióta dolgozol ennél a cégnél.",
     action:
-      "Egészítsd ki a tényleges kezdő hónappal. A hiányzó dátumot a demó nem találja ki.",
+      "Írd az év mellé a tényleges kezdő hónapot is. Ha nem emlékszel rá, ellenőrizd a munkaszerződésedben.",
   },
 ];
 
@@ -77,7 +77,7 @@ export const checks = [
   },
   {
     title: "Szerkezet és hiányzó információk",
-    text: "A fontos részletek a helyükön.",
+    text: "Munkakör, munkahely, dátumok és nyelvtudás.",
     example: "Például: szerepel-e munkakör, dátum és nyelvtudási szint?",
   },
   {
@@ -87,7 +87,7 @@ export const checks = [
   },
   {
     title: "Álláshoz illeszkedés",
-    text: "Külön nézőpont, ha van álláshirdetés.",
+    text: "A CV és a hirdetésben kért tapasztalat összevetése.",
     example:
       "Például: megjelenik-e a CV-ben a hirdetésben kért Excel-ismeret? A demó ezt még nem értékeli.",
   },
@@ -95,23 +95,28 @@ export const checks = [
 
 export const faqs = [
   {
-    question: "Mi az az ATS?",
+    question: "Használhatom már a saját önéletrajzommal?",
     answer:
-      "Az ATS a jelentkezések kezelésére használt rendszer. Egyes rendszerek adatokat is kiolvasnak az önéletrajzból. A CVRadar saját minőségi mutatót mutat: ez nem egy minden ATS-re érvényes pontszám.",
+      "A PDF- vagy DOCX-fájlod szövegét már ki tudjuk olvasni és megmutatni. A kiolvasott szöveget külön indítható AI-lépéssel adatokba is rendezheted. Értékelés és pontozás még nincs; ezekhez külön, fiktív mintaeredményt nézhetsz meg. A CV-javítás tervezett egyszeri induló ára 1 990 Ft; a csomag még nem vásárolható meg, és letöltés sem érhető el.",
   },
   {
-    question: "Garantálja a jó pontszám az interjút?",
+    question: "Mi az az ATS?",
     answer:
-      "Nem. Egy átlátható önéletrajz segít bemutatni a tapasztalatodat, de a kiválasztás a pozíciótól, a munkáltatótól és sok más tényezőtől is függ.",
+      "Az ATS egy jelentkezéskezelő rendszer, amelyet a munkáltatók használnak. Egyes rendszerek adatokat is kiolvasnak a CV-ből. A demó pontszáma csak példa: nem jelzi, hogyan értékelne egy adott munkáltató rendszere.",
+  },
+  {
+    question: "Mit jelent a 82/100 pont?",
+    answer:
+      "Ez egy előre megadott mintaérték, nem a saját CV-d eredménye. A tervezett szolgáltatás az olvashatóságról, a hiányzó adatokról és a megfogalmazásról ad majd visszajelzést. A pontszám nem ígér interjút vagy sikeres jelentkezést.",
   },
   {
     question: "Magyar és angol CV-vel is használható lesz?",
     answer:
-      "A tervezett szolgáltatás magyar és angol önéletrajzokat is támogat majd. Ebben a prototípusban egy magyar nyelvű, fiktív önéletrajz mintaelemzését próbálhatod ki.",
+      "A tervezett szolgáltatás magyar és angol önéletrajzokat is támogat majd. Ebben a demóban egy magyar nyelvű, fiktív önéletrajz mintaelemzését próbálhatod ki.",
   },
   {
-    question: "Mi történik a feltöltött fájlommal?",
+    question: "Mi történik a kiválasztott fájlommal?",
     answer:
-      "A kiválasztott fájl helyben marad a böngésződben. Nem olvassuk ki, nem küldjük szerverre és nem tároljuk tartósan. Eltávolításkor, továbblépéskor vagy az oldal elhagyásakor elengedjük a fájlt; a következő képernyő minden esetben mintaadatokat mutat.",
+      "A szövegkinyerés indításakor a fájl a szerverre kerül. A feldolgozáshoz memóriában tartjuk, majd elengedjük. Mi sem a fájlt, sem a kiolvasott szöveget nem tároljuk tartósan. AI-szolgáltatónak csak akkor küldjük el a szöveget, ha külön elindítod a CV adatainak felismerését. Az OpenAI saját adatmegőrzési szabályairól az indítás előtt tájékoztatunk. A megjelenített szöveg az oldal elhagyásakor vagy másik fájl választásakor eltűnik. A bemásolt álláshirdetést nem küldjük el.",
   },
 ];

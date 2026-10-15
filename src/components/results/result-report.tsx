@@ -13,17 +13,16 @@ export function ResultReport({ hasJob }: { hasJob: boolean }) {
           Mintaelemzés
         </span>
         <p>
-          Fiktív önéletrajz, illusztratív pontszámok. Ez az eredmény nem a
+          Fiktív önéletrajz, előre megadott pontszámok. Ez az eredmény nem a
           kiválasztott fájlodból készült.
         </p>
       </div>
       <Entrance className="report-title">
         <span className="eyebrow">KOVÁCS ANNA · FIKTÍV MINTA-CV</span>
-        <h1>Van mire építened.</h1>
+        <h1>3 javítandó részlet</h1>
         <p>
-          A tapasztalatod jól kirajzolódik. Néhány pontosabb részlettel
-          <br className="desktop-break" /> még könnyebb lesz megérteni, mit
-          hozol magaddal.
+          A minta-CV-ben a feladatleírást, az angoltudás szintjét és a
+          munkakezdés dátumát érdemes pontosítani. Alább megmutatjuk, hogyan.
         </p>
       </Entrance>
       <section className="score-overview" aria-labelledby="score-title">
@@ -55,9 +54,9 @@ export function ResultReport({ hasJob }: { hasJob: boolean }) {
             </strong>
           </div>
           <div>
-            <h2 id="score-title">Általános CV-minőség</h2>
+            <h2 id="score-title">Összesített mintaértékelés</h2>
             <p>
-              A CVRadar saját minőségi mutatója.
+              A demóhoz megadott pontszám.
               <br />
               Nem univerzális ATS-pontszám,
               <br />
@@ -99,18 +98,18 @@ export function ResultReport({ hasJob }: { hasJob: boolean }) {
           <p>
             {hasJob
               ? "Álláshirdetést is megadtál. A demó nem értékeli ki a bemásolt tartalmat, ezért illeszkedési pontszámot nem mutatunk."
-              : "Nincs megadott álláshirdetés. Az illeszkedés külön mutató lesz; hirdetés nélkül nem adunk hozzá pontszámot."}
+              : "Nincs megadott álláshirdetés. A tervezett szolgáltatás a CV-t a hirdetéssel is összeveti majd; a demó ezt még nem értékeli."}
           </p>
         </div>
-        <span className="neutral-badge">Még nincs kiértékelés</span>
+        <span className="neutral-badge">A demóban nem elérhető</span>
       </section>
       <section
         className="improvements-section"
         aria-labelledby="improvements-title"
       >
         <div className="report-section-heading">
-          <span className="eyebrow">ITT ÉRDEMES KEZDENED</span>
-          <h2 id="improvements-title">3 részlet, amin javíthatsz.</h2>
+          <span className="eyebrow">JAVÍTÁSI JAVASLATOK A MINTÁHOZ</span>
+          <h2 id="improvements-title">Ezt a 3 részletet érdemes javítani.</h2>
           <p>A javaslatok a fiktív minta-CV konkrét soraira hivatkoznak.</p>
         </div>
         <div className="improvement-list">
@@ -133,13 +132,13 @@ export function ResultReport({ hasJob }: { hasJob: boolean }) {
       </section>
       <section className="extracted-section" aria-labelledby="extracted-title">
         <div>
-          <span className="eyebrow">A DOKUMENTUM MÖGÖTT</span>
-          <h2 id="extracted-title">Mit sikerült kiolvasni?</h2>
+          <span className="eyebrow">ADATOK A MINTA-CV-BŐL</span>
+          <h2 id="extracted-title">Milyen adatok szerepelnek a mintában?</h2>
           <p>
-            Így rendeződhetnek áttekinthető adatokká
-            <br className="desktop-break" /> a CV-ben szereplő információk.
+            Ezeket az adatokat előre megadtuk a demóhoz. Nem a kiválasztott
+            fájlból olvastuk ki őket.
           </p>
-          <span className="neutral-badge">Fiktív, strukturált mintaadatok</span>
+          <span className="neutral-badge">Előre megadott mintaadatok</span>
         </div>
         <dl className="extracted-data">
           <div>
@@ -185,12 +184,8 @@ export function ResultReport({ hasJob }: { hasJob: boolean }) {
         </dl>
       </section>
       <section className="report-comparison" aria-labelledby="rewrite-title">
-        <span className="eyebrow">EGY JAVÍTÁS KÖZELEBBRŐL</span>
-        <h2 id="rewrite-title">
-          Ugyanaz a tapasztalat.
-          <br />
-          Pontosabb megfogalmazás.
-        </h2>
+        <span className="eyebrow">EREDETI ÉS JAVASOLT MONDAT</span>
+        <h2 id="rewrite-title">Így lehet pontosítani a feladatleírást.</h2>
         <Comparison compact />
         <p className="honest-note">
           <Icon name="shield" />A javaslat nem ad hozzá új feladatot,
@@ -199,14 +194,14 @@ export function ResultReport({ hasJob }: { hasJob: boolean }) {
       </section>
       <div className="report-end">
         <div>
-          <h2>A következő lépés a tiéd.</h2>
+          <h2>Megnéznéd a saját CV-d szövegét?</h2>
           <p>
-            A demó eredményeit szabadon végignézheted, fájl feltöltése nélkül
-            is.
+            A saját fájlodból kiolvasott szöveget külön mutatjuk meg. Az itt
+            látott pontszámok és javaslatok csak a fiktív mintához tartoznak.
           </p>
         </div>
         <Link href="/ellenorzes" className="button button-dark">
-          Vissza a feltöltéshez <Icon name="arrow" />
+          Saját CV szövegének kiolvasása <Icon name="arrow" />
         </Link>
       </div>
     </>

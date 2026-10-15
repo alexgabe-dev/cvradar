@@ -3,7 +3,7 @@ import { UploadForm } from "@/components/upload/upload-form";
 import { Entrance } from "@/components/ui/motion";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Önéletrajz ellenőrzése" };
+export const metadata: Metadata = { title: "Önéletrajz szövegének kiolvasása" };
 
 export default function UploadPage() {
   return (
@@ -13,12 +13,12 @@ export default function UploadPage() {
           ← Vissza a kezdőlapra
         </Link>
         <Entrance className="upload-heading">
-          <span className="eyebrow">AZ ELSŐ LÉPÉS</span>
-          <h1>Nézz a sorok mögé.</h1>
+          <span className="eyebrow">PDF- ÉS DOCX-SZÖVEGKINYERÉS</span>
+          <h1>Nézd meg, mi olvasható ki a CV-dből.</h1>
           <p>
-            Válaszd ki az önéletrajzodat, és ismerd meg,
-            <br className="desktop-break" /> hogyan épül fel egy
-            CVRadar-elemzés.
+            Válassz egy PDF- vagy DOCX-fájlt. Kiolvassuk és megmutatjuk a
+            szövegét. Ezután külön lépésben kérheted az adatok AI-felismerését.
+            Értékelés és pontozás még nincs.
           </p>
         </Entrance>
         <UploadForm />

@@ -14,7 +14,7 @@ export default async function SamplePage({
     <main id="tartalom" className="report-page">
       <div className="container">
         <Link className="back-link" href="/ellenorzes">
-          ← Vissza a feltöltéshez
+          ← Saját CV szövegének kiolvasása
         </Link>
         <ResultReport hasJob={params.hirdetes === "megadva"} />
       </div>

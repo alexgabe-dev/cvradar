@@ -13,29 +13,28 @@ export default function Home() {
           <Entrance className="hero-copy">
             <div className="hero-eyebrow">
               <span className="status-dot" />
-              EGY TISZTÁBB KÉP A CV-DRŐL
+              ÖNÉLETRAJZ-ELLENŐRZÉS
             </div>
             <h1 id="hero-title">
-              Ne csak elküldd.
-              <br />
-              Tudd, mit látnak
-              <br />
-              <span>belőle.</span>
+              Küldés előtt
+              <br /> nézesd át <span>a CV-det.</span>
             </h1>
             <p className="hero-description">
-              Nézd meg, mi olvasható ki az önéletrajzodból, mi hiányzik belőle,
-              és min érdemes javítani.
+              Megnézzük, kiolvashatók-e az adatok az önéletrajzodból, mi
+              hiányzik, és hol érdemes pontosabban fogalmaznod. Ha megadod az
+              álláshirdetést is, azzal is összevetjük.
             </p>
             <div className="hero-actions">
-              <Link href="/ellenorzes" className="button button-mint">
-                Önéletrajz feltöltése <Icon name="arrow" />
+              <Link href="/mintaelemzes" className="button button-mint">
+                Megnézem a mintaelemzést <Icon name="arrow" />
               </Link>
-              <Link href="/mintaelemzes" className="hero-secondary">
-                Megnézem egy példán <span aria-hidden="true">↗</span>
+              <Link href="/ellenorzes" className="hero-secondary">
+                Kiolvasom a saját CV-m szövegét{" "}
+                <span aria-hidden="true">↗</span>
               </Link>
             </div>
             <p className="upload-hint">
-              PDF vagy DOCX <span>·</span> Ingyenes alapellenőrzés
+              Most szövegkinyerést és egy külön mintaelemzést tudsz kipróbálni.
             </p>
           </Entrance>
           <Entrance className="hero-visual" delay={0.12}>
@@ -43,11 +42,11 @@ export default function Home() {
           </Entrance>
         </div>
         <div className="container hero-baseline">
-          <span>KEVESEBB TALÁLGATÁS. TÖBB KONKRÉTUM.</span>
+          <span>OLVASHATÓSÁG · HIÁNYZÓ ADATOK · MEGFOGALMAZÁS</span>
           <a href="#reszletek">
-            Nézz a sorok mögé <span aria-hidden="true">↓</span>
+            Mit nézünk az önéletrajzban? <span aria-hidden="true">↓</span>
           </a>
-          <span className="hero-baseline-end">MAGYAR CV-KRE IS TERVEZVE</span>
+          <span className="hero-baseline-end">MAGYAR ÖNÉLETRAJZOKHOZ IS</span>
         </div>
       </section>
       <div id="reszletek">

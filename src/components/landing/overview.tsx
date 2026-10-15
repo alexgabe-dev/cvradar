@@ -15,15 +15,11 @@ export function LandingOverview() {
       >
         <div className="container inspection-layout">
           <div className="inspection-copy">
-            <span className="eyebrow">MIT VIZSGÁLUNK?</span>
-            <h2 id="checks-title">
-              A jó tapasztalat is
-              <br />
-              elveszhet a sorok között.
-            </h2>
+            <span className="eyebrow">MIT ELLENŐRZÜNK MAJD?</span>
+            <h2 id="checks-title">Mi hiányzik, és min érdemes javítani?</h2>
             <p className="inspection-intro">
-              Egy CV-ben a részletek is számítanak. Megmutatjuk, mi érthető
-              belőle, és hol maradhat kérdés az olvasóban.
+              A tervezett ellenőrzés ezeket a szempontokat nézi majd. A demóban
+              egy fiktív önéletrajz példáján mutatjuk meg a visszajelzéseket.
             </p>
             <div className="check-list">
               {checks.map((check, index) => (
@@ -59,17 +55,15 @@ export function LandingOverview() {
       >
         <div className="container rewrite-layout">
           <div className="rewrite-copy">
-            <span className="eyebrow">UGYANAZ A TAPASZTALAT. TISZTÁBBAN.</span>
-            <h2 id="comparison-title">
-              A pontszám mögött konkrét válaszok vannak.
-            </h2>
+            <span className="eyebrow">PÉLDA EGY MONDAT JAVÍTÁSÁRA</span>
+            <h2 id="comparison-title">Írd le pontosan, mi volt a feladatod.</h2>
             <p>
-              Nem csak azt mutatjuk meg, hol érdemes javítani. Azt is, hogyan
-              hangozhat pontosabban.
+              A mintában a felületek, a heti bejegyzések és a havi riportok is
+              szerepelnek. Egy mondatba rendezve könnyebb követni a feladatokat.
             </p>
             <p className="honest-note">
-              <Icon name="shield" />A javaslat a meglévő tényekre épül. Nem
-              talál ki eredményeket vagy számokat.
+              <Icon name="shield" />A példában csak a megfogalmazás változik. Új
+              feladatot vagy eredményt nem adunk hozzá.
             </p>
             <Link className="button button-dark" href="/mintaelemzes">
               Megnézem a javaslatokat <Icon name="arrow" />
@@ -86,9 +80,10 @@ export function LandingOverview() {
         <div className="container">
           <div className="process-intro">
             <span className="eyebrow">ÍGY MŰKÖDIK</span>
-            <h2 id="process-title">Egy új nézőpont. Három egyszerű lépés.</h2>
+            <h2 id="process-title">Hogyan működik?</h2>
             <p>
-              A saját tempódban, az önéletrajzod fontos részleteire figyelve.
+              A saját fájlodból már ki tudjuk olvasni a szöveget. Értékelés még
+              nem készül; azt külön mintaelemzésen mutatjuk be.
             </p>
           </div>
           <ol className="process-steps">
@@ -97,11 +92,11 @@ export function LandingOverview() {
                 <Icon name="upload" />
               </span>
               <div>
-                <span className="step-eyebrow">01 / FELTÖLTÉS</span>
-                <h3>Töltsd fel az önéletrajzodat.</h3>
+                <span className="step-eyebrow">01 / FÁJLVÁLASZTÁS</span>
+                <h3>Válaszd ki az önéletrajzodat.</h3>
                 <p>
-                  Válassz egy PDF- vagy DOCX-fájlt. Ha van álláshirdetésed, azt
-                  is bemásolhatod.
+                  Válassz egy legfeljebb 10 MB-os PDF- vagy DOCX-fájlt. A
+                  szövegkinyerés indításakor a fájl a szerverre kerül.
                 </p>
                 <span className="step-detail">
                   PDF / DOCX · legfeljebb 10 MB
@@ -113,14 +108,14 @@ export function LandingOverview() {
                 <Icon name="file" />
               </span>
               <div>
-                <span className="step-eyebrow">02 / ELEMZÉS</span>
-                <h3>Nézd meg az elemzést.</h3>
+                <span className="step-eyebrow">02 / SZÖVEGKINYERÉS</span>
+                <h3>Nézd meg a kiolvasott szöveget.</h3>
                 <p>
-                  Külön szempontok és konkrét CV-részletek segítenek megérteni
-                  az összképet.
+                  A dokumentumból ténylegesen kiolvasott szöveget mutatjuk. Nem
+                  tároljuk tartósan, és nem küldjük AI-szolgáltatónak.
                 </p>
                 <span className="step-detail">
-                  Ebben a demóban: mintaelemzés
+                  Értékelés és pontszám nélkül
                 </span>
               </div>
             </li>
@@ -129,20 +124,20 @@ export function LandingOverview() {
                 <Icon name="check" />
               </span>
               <div>
-                <span className="step-eyebrow">03 / PONTOSÍTÁS</span>
-                <h3>Javítsd a fontos részleteket.</h3>
+                <span className="step-eyebrow">03 / KÜLÖN MINTAELEMZÉS</span>
+                <h3>Nézd végig a javítási példákat.</h3>
                 <p>
-                  Használd a javaslatokat, és fogalmazd meg világosabban a saját
-                  tapasztalatodat.
+                  A külön elérhető mintaelemzés egy fiktív CV javítási példáit
+                  mutatja. Ezek nem a feltöltött fájlodhoz tartoznak.
                 </p>
                 <span className="step-detail">
-                  A tények maradnak. A megfogalmazás tisztul.
+                  Csak olyan adatot írj a CV-dbe, ami igaz rád.
                 </span>
               </div>
             </li>
           </ol>
           <Link className="text-link" href="/ellenorzes">
-            Kipróbálom a demót <Icon name="arrow" />
+            Kiolvasom a saját CV-m szövegét <Icon name="arrow" />
           </Link>
         </div>
       </section>

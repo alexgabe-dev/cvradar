@@ -28,15 +28,15 @@ export function DocumentScanner() {
           <Icon name="check" />
         </span>
         <div>
-          <strong>Tapasztalatok felismerve</strong>
-          <span>Követhető szakmai út</span>
+          <strong>Szakmai tapasztalat</strong>
+          <span>Munkakör és munkahely megadva</span>
         </div>
       </div>
       <div className="scanner-format">
         <Icon name="file" />
         <div>
-          <strong>Olvasható dokumentum</strong>
-          <span>Struktúra felismerve</span>
+          <strong>Olvasható mintaszöveg</strong>
+          <span>A szekciók elkülönülnek</span>
         </div>
       </div>
       <div className="scanner-result">
@@ -67,14 +67,14 @@ export function DocumentScanner() {
         </div>
         <div>
           <span className="result-eyebrow">MINTAEREDMÉNY</span>
-          <strong>Van mire építened.</strong>
+          <strong>3 javítandó részlet</strong>
           <span className="result-suggestions">
             <span />3 javítási javaslat <Icon name="arrow" />
           </span>
         </div>
       </div>
       <div className="scanner-caption">
-        <span className="crosshair">+</span> A RÉSZLETEKBŐL ÁLL ÖSSZE A KÉP.
+        <span className="crosshair">+</span> FIKTÍV ÖNÉLETRAJZ · MINTAEREDMÉNY
       </div>
     </div>
   );

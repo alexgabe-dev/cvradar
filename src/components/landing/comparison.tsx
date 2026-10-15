@@ -56,7 +56,7 @@ export function Comparison({
           )}
         </p>
         <span className="comparison-source">
-          Ugyanaz a tapasztalat. Világosabban megfogalmazva.
+          A mintában szereplő feladatok, egy mondatba rendezve.
         </span>
       </div>
     </div>

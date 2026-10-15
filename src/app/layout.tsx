@@ -8,11 +8,11 @@ import { MotionProvider } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
   title: {
-    default: "CVRadar — Tudd, mit látnak a CV-dből.",
+    default: "CVRadar — Önéletrajz-ellenőrzés, konkrét javaslatokkal",
     template: "%s | CVRadar",
   },
   description:
-    "Egy tisztább kép az önéletrajzodról. Olvashatóság, szerkezet és pontosabb megfogalmazás — próbáld ki a CVRadar mintaelemzését.",
+    "Nézd meg a CVRadar mintaelemzését: olvashatóság, hiányzó adatok és javítási példák egy fiktív önéletrajzon.",
 };
 
 export default function RootLayout({

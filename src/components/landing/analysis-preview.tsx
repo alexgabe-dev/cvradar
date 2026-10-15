@@ -41,20 +41,16 @@ export function AnalysisPreview() {
             <strong>82</strong>
             <span>/100</span>
           </div>
-          <span className="dial-caption">Van mire építened.</span>
+          <span className="dial-caption">3 javítandó részlet</span>
           <span className="dial-sample">MINTAELEMZÉS</span>
         </div>
         <div className="analysis-preview-copy">
-          <span className="eyebrow">A SZÁMOK MÖGÖTT IS LÁTUNK</span>
-          <h2 id="analysis-preview-title">
-            Részletesebb kép.
-            <br />
-            Érthetőbb következő lépés.
-          </h2>
+          <span className="eyebrow">PÉLDA AZ ÉRTÉKELÉSRE</span>
+          <h2 id="analysis-preview-title">Mit mutat meg az értékelés?</h2>
           <p>
-            Külön nézzük a dokumentum olvashatóságát, szerkezetét és a
-            tapasztalatok megfogalmazását. Így azt is látod, hol érdemes
-            kezdened.
+            Ebben a mintában a szöveg olvasható, de a munkakezdés hónapja és a
+            nyelvtudás pontos szintje hiányzik. A feladatleírást is lehet
+            pontosítani.
           </p>
           <div className="preview-subscores">
             {subscores.map((score, index) => (
@@ -78,8 +74,8 @@ export function AnalysisPreview() {
             Megnézem a teljes mintaelemzést <Icon name="arrow" />
           </Link>
           <p className="score-disclaimer">
-            Illusztratív, saját CV-minőségi mutató. Nem univerzális ATS-pontszám
-            és nem interjúgarancia.
+            A pontszámok mintaadatok. Nem érvényesek minden ATS-rendszerre, és
+            nem jelzik előre, hogy behívnak-e interjúra.
           </p>
         </div>
       </div>
